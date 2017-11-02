@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+##  heroku 登録用に追記
+##  root 'tops#blogs' これじゃダメだった。なんで？↓エラーでルーティングが出てて何となく表示させたいパスにしたら通った！
+  root 'blogs#index'
+
 ##  get '/contacts', to: 'contacts#index'#課題１問い合わせ画面作成
   resources :contacts
 
