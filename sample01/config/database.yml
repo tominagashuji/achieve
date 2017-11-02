@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  ##  追記
+  template: template0
+  ##  ymlファイルはインデント、カラムがずれているとsyntaxerrorになるよ！！
+
+development:
+  <<: *default
+  database: sample01_development
+
+test:
+  <<: *default
+  database: sample01_test
+  
+production:
+  <<: *default
+  database: sample01_production
+  username: sample01
+  password: <%= ENV['SAMPLE01_DATABASE_PASSWORD'] %>
